@@ -6,17 +6,12 @@ import java.util.List;
 /**
  * Created by epomeroy on 9/6/15.
  */
-public class BankAccount {
-    public enum Type {
-        CHECKING, SAVINGS
-    }
-
+public abstract class BankAccount {
     private List<Double> transactions = new ArrayList<>();
     private static final double OVERDRAFT_FEE = -30;
-    private Type accountType;
 
-    public BankAccount(Type acctType) {
-        this.accountType = acctType;
+    public BankAccount() {
+
     }
 
     public double getBalance() {
@@ -29,7 +24,7 @@ public class BankAccount {
         return total;
     }
 
-    private int getNumberOfWithdraw() {
+    protected int getNumberOfWithdraw() {
         int count = 0;
         for (Double value: this.transactions) {
             if (value < 0) {
@@ -41,10 +36,6 @@ public class BankAccount {
     }
 
     public void withdraw(double amount) {
-        if (this.accountType.equals(Type.SAVINGS) && this.getNumberOfWithdraw() >= 3) {
-            return;
-        }
-
         transactions.add(-amount);
 
         if (this.getBalance() < 0) {

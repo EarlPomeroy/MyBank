@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        currentAccount = new BankAccount(BankAccount.Type.SAVINGS);
+        currentAccount = new SavingsAccount();
 
         amountInput = (EditText) findViewById(R.id.amount_input);
         depositButton = (Button) findViewById(R.id.deposit_button);

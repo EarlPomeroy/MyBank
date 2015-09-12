@@ -1,4 +1,4 @@
-package com.example.epomeroy.mybank;
+package com.example.epomeroy.accounts;
 
 import java.util.ArrayList;
 import java.util.List;
